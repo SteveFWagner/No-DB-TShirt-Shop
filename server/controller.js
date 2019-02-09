@@ -1,12 +1,4 @@
-const orders = [
-    {
-        id:0,
-        color:`Black`,
-        size:`L`,
-        qty:1,
-        price:10,
-    }
-]
+const orders = []
 
 let id = 0
 let price = 0
