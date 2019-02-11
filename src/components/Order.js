@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import DeleteButton from "./DeleteButton"
-import EditButton from './EditButton';
+import EditButton from './EditButton'
 
 export default class Order extends Component{
     constructor(props){
@@ -10,10 +10,11 @@ export default class Order extends Component{
         }
         this.handleEditState=this.handleEditState.bind(this)
     }
+    
     handleEditState(){
         let {editing} = this.state
         // let currentState = editing
-        console.log("Editing State @ Order: ",editing)
+        // console.log("Editing State @ Order: ",editing)
         this.setState({
             editing:!editing
         })
@@ -24,8 +25,9 @@ export default class Order extends Component{
         let mappedOrders = this.props.orders.map((val) =>{
             let {id,color,size,qty,price} = val
         let {editing} = this.state
+        
             return(
-                <div key={id}>
+                <div key={id} className="orderEach">
                     <h4>Color: {color}</h4>
                     <h4>Size: {size}</h4>
                     <h4>Quantity: {qty}</h4>
@@ -36,10 +38,11 @@ export default class Order extends Component{
                     <DeleteButton id={id} handleDeleteButton={this.props.handleDeleteButton}/>
                 </div>
             )
-            })    
+            })
+              
         return(
-            <div>
-                <h3>YOORDER</h3>
+            <div className="orderContainer">
+                
                 {mappedOrders}
             </div>
         );

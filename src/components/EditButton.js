@@ -6,7 +6,7 @@ export default function EditButton(props){
 
     return(
         <div>
-            {console.log("Editing State @ Edit Button: ", props.editing)}
+            {/* {console.log("Editing State @ Edit Button: ", props.editing)} */}
             {!props.editing?
             (<button onClick={()=>props.handleEditState()}>Edit Item</button>):
             <div>

@@ -29,18 +29,23 @@ export default class Selectors extends Component{
        handleOrderButton(){
            let newOrder=[]
            newOrder.push(this.state)
-           console.log("newOrder is @ selectors:",newOrder)
+        //    console.log("newOrder is @ selectors:",newOrder)
            this.props.handleOrderButton(newOrder)
+           this.setState({
+               colorInput:``,
+               sizeInput:``,
+               qtyInput:``
+           })
        }
    render(){
         return(
-            <div>
+            <div className="selectors">
                 <input placeholder="Input a Color" onChange={(e)=>this.handleColorInput(e.target.value)}
-                value={this.state.colorInput}/><br/>
+                value={this.state.colorInput} className="sel-input"/><br/>
                 <input placeholder="Input a Size" onChange={(e)=>this.handleSizeInput(e.target.value)}
-                value={this.state.sizeInput}/><br/>
+                value={this.state.sizeInput} className="sel-input"/><br/>
                 <input placeholder="Input a Quantity" onChange={(e)=>this.handleQtyInput(e.target.value)}
-                value={this.state.qtyInput}/><br/>
+                value={this.state.qtyInput} className="sel-input"/><br/>
                 <OrderButton handleOrderButton={this.handleOrderButton}/>            
             </div>
         )

@@ -23,10 +23,23 @@ module.exports={
     },
     editOrder: (req,res)=>{
         const {id} = req.params
+        // console.log("id @ controller: ", id)
         let {color, size, qty, price} = req.body
         const index = orders.findIndex(order=> order.id ==id)
-        price = qty*10
-        orders.splice(index,1,{id,color, size, qty, price})
+        // console.log("index @ controller: ", index)
+        price = req.body.qty*10
+
+        let currentOrder = orders[index]
+        // console.log("currentOrder @ controller: ", currentOrder)
+
+        currentOrder = {
+            id: currentOrder.id,
+            color: color || currentOrder.color,
+            size: size || currentOrder.size,
+            qty: qty || currentOrder.qty,
+            price: price || currentOrder.price
+        }
+        orders.splice(index,1,currentOrder)
         res.status(200).send(orders)
     }
 }

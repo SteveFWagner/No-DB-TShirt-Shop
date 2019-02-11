@@ -4,7 +4,7 @@ export default function OrderButton(props){
     
     return(
         <div>
-            <button onClick={()=>props.handleOrderButton()}>Order Now!</button>              
+            <button className="orderButton" onClick={()=>props.handleOrderButton()}>Order Now!</button>              
         </div>
     )
     
